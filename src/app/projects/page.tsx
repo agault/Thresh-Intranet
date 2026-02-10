@@ -182,7 +182,7 @@ export default function ProjectsPage() {
                 <p className="text-gray-600 mb-2">Client: {project.client}</p>
                 <p className="text-gray-700">{project.description}</p>
               </div>
-              <span className={`px-3 py-1 rounded-md text-sm font-medium ${statusColors[project.status]}`}>
+              <span className={`px-3 py-1 rounded-md text-sm font-medium ${statusColors[project.status as keyof typeof statusColors]}`}>
                 {project.status}
               </span>
             </div>
