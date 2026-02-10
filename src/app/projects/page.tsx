@@ -128,7 +128,12 @@ const statusColors = {
   'On Hold': 'bg-gray-100 text-gray-800',
 };
 
-const healthColors = {
+// const healthColors = {
+//   green: 'bg-green-500',
+//   yellow: 'bg-yellow-500',
+//   red: 'bg-red-500',
+// };
+const healthColors: Record<string, string> = {
   green: 'bg-green-500',
   yellow: 'bg-yellow-500',
   red: 'bg-red-500',
@@ -172,7 +177,7 @@ export default function ProjectsPage() {
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
                   <h2 className="text-2xl font-bold">{project.name}</h2>
-                  <div className={`w-3 h-3 rounded-full ${healthColors[project.health]}`} title={`Health: ${project.health}`} />
+                  <div className={`w-3 h-3 rounded-full ${healthColors[project.health as keyof typeof healthColors]}`} title={`Health: ${project.health}`} />
                 </div>
                 <p className="text-gray-600 mb-2">Client: {project.client}</p>
                 <p className="text-gray-700">{project.description}</p>
