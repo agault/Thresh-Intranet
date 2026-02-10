@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         'thresh-blue': '#3B36C9',  // Main brand color: rgb(59, 54, 201)
         'thresh-light': '#D7D7F5',  // Lighter accent color
-        'thresh-dark': 'hsl(251, 89%, 28%)',
+        'thresh-dark': 'hsl(251, 89%, 76%)',
       },
     },
   },
