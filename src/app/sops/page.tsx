@@ -50,7 +50,7 @@ const sops = [
     ]
   },
   // Templates and Standard Assets stay the same with download: true
-
+]
 export default function SOPsPage() {
   const [searchTerm, setSearchTerm] = useState('');
 
