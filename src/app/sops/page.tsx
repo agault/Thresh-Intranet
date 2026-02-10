@@ -2,7 +2,17 @@
 
 import { useState } from 'react';
 import { Search, FileText, Download } from 'lucide-react';
+type SOPItem = {
+  title: string;
+  description: string;
+  href: string;
+  download?: boolean;
+};
 
+type SOPCategory = {
+  category: string;
+  items: SOPItem[];
+};
 const sops = [
   {
     category: 'Onboarding',
