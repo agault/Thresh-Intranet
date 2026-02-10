@@ -40,7 +40,7 @@ export const tools: Tool[] = [
     id: 'figma',
     name: 'Figma',
     tagline: 'Collaborative design platform',
-    description: 'Figma is a cloud-based design platform for UI/UX design, prototyping, and collaboration. It allows multiple team members to work on the same design file simultaneously in real-time.',
+    description: 'Figma is Thresh's single source of truth for all design work — brand assets, UI/UX design, wireframes, prototypes, client presentations, and design systems. It is where creative concepts become tangible artifacts that clients and developers can interact with.',
     category: ['design', 'collaboration'],
     logo: '🎨',
     launch_url: 'https://figma.com',
@@ -69,6 +69,85 @@ export const tools: Tool[] = [
         'Install unapproved plugins',
         'Share client work publicly without approval'
       ]
+        {
+    id: 'figma',
+    name: 'Figma',
+    tagline: 'Collaborative design platform',
+    description: 'Figma is Thresh\'s single source of truth for all design work — brand assets, UI/UX design, wireframes, prototypes, client presentations, and design systems. It is where creative concepts become tangible artifacts that clients and developers can interact with.',
+    category: ['design', 'collaboration'],
+    logo: '🎨',
+    launch_url: 'https://figma.com',
+    why_we_use_it: 'Industry-standard tool for digital design with real-time collaboration, easy client sharing, and seamless developer handoff.',
+    access: {
+      roles: ['designers', 'pms', 'devs'],
+      admin: 'design-lead@threshconsulting.com',
+      licenses_total: 10,
+      licenses_used: 8
+    },
+    login: {
+      method: 'sso',
+      provider: 'google',
+      instructions: "Click 'Sign in with Google' and use your @threshconsulting.com email"
+    },
+    guardrails: {
+      do: [
+        'Use for client projects and internal design work',
+        'Enable two-factor authentication',
+        'Organize files in designated project folders',
+        'Use comments for feedback and collaboration'
+      ],
+      dont: [
+        'Share login credentials',
+        'Download client files to personal devices without approval',
+        'Install unapproved plugins',
+        'Share client work publicly without approval'
+      ]
+    },
+    policies: {
+      title: 'Security & Access Policies',
+      items: [
+        {
+          label: 'Authentication',
+          value: 'SSO via Google Workspace. No personal Figma accounts for company work.'
+        },
+        {
+          label: 'Plan',
+          value: 'Figma Organization (Enterprise or Business tier) to enable SSO enforcement, centralized admin, shared libraries, and branching/merging.'
+        },
+        {
+          label: 'Permissions',
+          value: '',
+          subitems: [
+            'Org Admins: Leadership / IT',
+            'Full Editors: Designers only',
+            'Viewers (with Dev Mode or comment access): Developers, Strategists, PMs'
+          ]
+        },
+        {
+          label: 'External Sharing',
+          value: 'Client reviews happen via prototype links with expiration or view-only guest access. Never grant edit access to external stakeholders unless explicitly approved.'
+        },
+        {
+          label: 'Asset Control',
+          value: 'Final, approved assets live in a locked "Final" page or project section. Only design leads can move work into this state.'
+        },
+        {
+          label: 'No Downloads of Source Files',
+          value: 'Team members should not export or download .fig source files to local machines. Work stays in Figma\'s cloud.'
+        }
+      ]
+    },
+    cost: {
+      amount: 150,
+      period: 'monthly',
+      visible_to: ['admin']
+    },
+    resources: [
+      { title: 'Usage Guide', url: '/sops/tools/figma' },
+      { title: 'Official Docs', url: 'https://help.figma.com' }
+    ]
+  },
+
     },
     cost: {
       amount: 150,
