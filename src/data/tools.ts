@@ -41,7 +41,7 @@ export const tools: Tool[] = [
     id: 'figma',
     name: 'Figma',
     tagline: 'Collaborative design platform',
-    description: 'Figma is Thresh's single source of truth for all design work — brand assets, UI/UX design, wireframes, prototypes, client presentations, and design systems. It is where creative concepts become tangible artifacts that clients and developers can interact with.',
+    description: 'Figma is Thresh`s single source of truth for all design work — brand assets, UI/UX design, wireframes, prototypes, client presentations, and design systems. It is where creative concepts become tangible artifacts that clients and developers can interact with.',
     category: ['design', 'collaboration'],
     logo: '🎨',
     launch_url: 'https://figma.com',
