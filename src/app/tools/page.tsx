@@ -27,7 +27,7 @@ export default function ToolsPage() {
 
 <div className="text-gray-600 text-lg mb-8 space-y-6">
   <p>
-    Before diving into individual tools, here&apos;s the bedrock your entire stack sits on:
+    Before diving into individual tools, here&apos;s the technology enviornment foundation:
   </p>
 
   {/* Foundation Table */}
