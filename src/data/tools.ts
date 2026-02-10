@@ -7,6 +7,7 @@ export interface Tool {
   logo: string;
   launch_url: string;
   why_we_use_it: string;
+  governance: string;
   access: {
     roles: string[];
     admin: string;
@@ -45,6 +46,7 @@ export const tools: Tool[] = [
     logo: '🎨',
     launch_url: 'https://figma.com',
     why_we_use_it: 'Industry-standard tool for digital design with real-time collaboration, easy client sharing, and seamless developer handoff.',
+    governance: 'The rules are the rules',
     access: {
       roles: ['designers', 'pms', 'devs'],
       admin: 'design-lead@threshconsulting.com',
@@ -89,6 +91,7 @@ export const tools: Tool[] = [
     logo: '💬',
     launch_url: 'https://threshconsulting.slack.com',
     why_we_use_it: 'Primary internal communication hub for real-time collaboration, organized channels, and tool integrations.',
+    governance: 'The rules are the rules',
     access: {
       roles: ['all'],
       admin: 'operations@threshconsulting.com',
@@ -132,6 +135,7 @@ export const tools: Tool[] = [
     logo: '🤖',
     launch_url: 'https://claude.ai',
     why_we_use_it: 'AI-powered writing, code generation, research support, and internal documentation creation.',
+    governance: 'The rules are the rules',
     access: {
       roles: ['all'],
       admin: 'product@threshconsulting.com',
@@ -174,6 +178,7 @@ export const tools: Tool[] = [
     logo: '⚙️',
     launch_url: 'https://github.com/threshconsulting',
     why_we_use_it: 'Source code repository, version control, code review, and project documentation.',
+    governance: 'The rules are the rules',
     access: {
       roles: ['developers', 'designers', 'pms'],
       admin: 'dev-lead@threshconsulting.com',
@@ -211,6 +216,7 @@ export const tools: Tool[] = [
     logo: '📧',
     launch_url: 'https://workspace.google.com',
     why_we_use_it: 'Professional email, file storage, document collaboration, scheduling, and single sign-on.',
+    governance: 'The rules are the rules',
     access: {
       roles: ['all'],
       admin: 'it@threshconsulting.com',
@@ -248,6 +254,7 @@ export const tools: Tool[] = [
     logo: '🔒',
     launch_url: 'https://addigy.com',
     why_we_use_it: 'Centralized device security, remote software deployment, and device monitoring.',
+    governance: 'The rules are the rules',
     access: {
       roles: ['all'],
       admin: 'it@threshconsulting.com',
@@ -284,6 +291,7 @@ export const tools: Tool[] = [
     logo: '🔐',
     launch_url: 'https://1password.com',
     why_we_use_it: 'Secure password storage, team credential sharing, and strong password generation.',
+    governance: 'The rules are the rules',
     access: {
       roles: ['all'],
       admin: 'it@threshconsulting.com',

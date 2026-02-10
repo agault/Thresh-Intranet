@@ -254,7 +254,11 @@ export default function ToolsPage() {
                   </div>
                 </div>
               </div>
-
+              {/*Governance */}
+              <div>
+                <h3 className="text-xl font-bold mb-2">🦖 Governance</h3>
+                <p className="text-gray-700">{tool.governance}</p>
+              </div>
               {/* Resources */}
               <div>
                 <h3 className="text-xl font-bold mb-2">📚 Resources</h3>
