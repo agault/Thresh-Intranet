@@ -46,7 +46,16 @@ export const tools: Tool[] = [
     logo: '🎨',
     launch_url: 'https://figma.com',
     why_we_use_it: 'Industry-standard tool for digital design with real-time collaboration, easy client sharing, and seamless developer handoff.',
-    governance: 'The rules are the rules',
+    governance: 'Authentication: SSO via Google Workspace. No personal Figma accounts for company work.
+ Plan: Figma Organization (Enterprise or Business tier) to enable SSO enforcement, centralized admin, shared libraries, and branching/merging.
+  Permissions:
+  Org Admins: Leadership / IT
+  Full Editors: Designers only
+  Viewers (with Dev Mode or comment access): Developers, Strategists, PMs
+  External Sharing: Client reviews happen via prototype links with expiration or view-only guest access. Never grant edit access to external stakeholders unless explicitly approved.
+  Asset Control: Final, approved assets live in a locked "Final" page or project section. Only design leads can move work into this state.
+	No Downloads of Source Files: Team members should not export or download .fig source files to local machines. Work stays in Figma's cloud.
+',
     access: {
       roles: ['designers', 'pms', 'devs'],
       admin: 'design-lead@threshconsulting.com',
