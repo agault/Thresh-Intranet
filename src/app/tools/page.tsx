@@ -23,19 +23,69 @@ export default function ToolsPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h1 className="text-4xl font-bold mb-8">Tools & Apps</h1>
-      <h2 className="text-4xl font mb-6">Overview & Guidance</h2>
-<p className="text-gray-600 text-lg mb-8">
-Before diving into individual tools, here's the bedrock your entire stack sits on:
-Layer	Solution	Role
-Hardware	MacBooks (Apple Silicon)	Primary work devices for all team members
-Device Management & Security	Addigy	MDM, patch management, security compliance, remote monitoring
-Identity & SSO	Google Workspace	Single Sign-On provider, email, calendar, core identity layer
-Network & Access	Google Workspace + Addigy policies	Enforce encryption, firewall rules, VPN requirements as needed
-Core Principles
-•	Google Workspace is the identity source of truth. Every tool that supports SSO or SAML should authenticate through Google Workspace. This gives you centralized user provisioning, de-provisioning, and audit trails.
-•	Addigy enforces device-level compliance. FileVault encryption, OS updates, approved software lists, and remote lock/wipe capabilities ensure that the hardware accessing your tools meets security baselines.
-•	Least-privilege access by default. Team members get the minimum permissions needed for their role. Escalation is intentional, not accidental.
-</p>
+      <h2 className="text-2xl font mb-6">Overview & Guidance</h2>
+<h1 className="text-4xl font-bold mb-8">Tools & Apps</h1>
+<h2 className="text-4xl font mb-6">Overview & Guidance</h2>
+
+<div className="text-gray-600 text-lg mb-8 space-y-6">
+  <p>
+    Before diving into individual tools, here&apos;s the bedrock your entire stack sits on:
+  </p>
+
+  {/* Foundation Table */}
+  <div className="overflow-x-auto">
+    <table className="w-full text-left border border-gray-300 rounded-lg overflow-hidden">
+      <thead className="bg-gray-100">
+        <tr>
+          <th className="px-4 py-3 font-bold text-gray-800 border-b border-gray-300">Layer</th>
+          <th className="px-4 py-3 font-bold text-gray-800 border-b border-gray-300">Solution</th>
+          <th className="px-4 py-3 font-bold text-gray-800 border-b border-gray-300">Role</th>
+        </tr>
+      </thead>
+      <tbody className="divide-y divide-gray-200">
+        <tr>
+          <td className="px-4 py-3">Hardware</td>
+          <td className="px-4 py-3">MacBooks (Apple Silicon)</td>
+          <td className="px-4 py-3">Primary work devices for all team members</td>
+        </tr>
+        <tr>
+          <td className="px-4 py-3">Device Management &amp; Security</td>
+          <td className="px-4 py-3">Addigy</td>
+          <td className="px-4 py-3">MDM, patch management, security compliance, remote monitoring</td>
+        </tr>
+        <tr>
+          <td className="px-4 py-3">Identity &amp; SSO</td>
+          <td className="px-4 py-3">Google Workspace</td>
+          <td className="px-4 py-3">Single Sign-On provider, email, calendar, core identity layer</td>
+        </tr>
+        <tr>
+          <td className="px-4 py-3">Network &amp; Access</td>
+          <td className="px-4 py-3">Google Workspace + Addigy policies</td>
+          <td className="px-4 py-3">Enforce encryption, firewall rules, VPN requirements as needed</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  {/* Core Principles */}
+  <div>
+    <h3 className="text-xl font-bold text-gray-800 mb-3">Core Principles</h3>
+    <ul className="list-disc list-inside space-y-2">
+      <li>
+        <span className="font-semibold">Google Workspace is the identity source of truth.</span>{' '}
+        Every tool that supports SSO or SAML should authenticate through Google Workspace. This gives you centralized user provisioning, de-provisioning, and audit trails.
+      </li>
+      <li>
+        <span className="font-semibold">Addigy enforces device-level compliance.</span>{' '}
+        FileVault encryption, OS updates, approved software lists, and remote lock/wipe capabilities ensure that the hardware accessing your tools meets security baselines.
+      </li>
+      <li>
+        <span className="font-semibold">Least-privilege access by default.</span>{' '}
+        Team members get the minimum permissions needed for their role. Escalation is intentional, not accidental.
+      </li>
+    </ul>
+  </div>
+</div>
 
       {/* Search and Filter */}
       <div className="mb-8 space-y-4">
