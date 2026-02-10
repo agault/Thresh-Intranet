@@ -17,57 +17,39 @@ const sops = [
   {
     category: 'Onboarding',
     items: [
-      { title: 'General Onboarding', description: 'First week guide for all new hires', href: '#' },
-      { title: 'Product Manager Onboarding', description: 'PM-specific processes and tools', href: '#' },
-      { title: 'Designer Onboarding', description: 'Design workflow and tool setup', href: '#' },
-      { title: 'Developer Onboarding', description: 'Dev environment and coding standards', href: '#' },
+      { title: 'General Onboarding', description: 'First week guide for all new hires', href: '#', download: false },
+      { title: 'Product Manager Onboarding', description: 'PM-specific processes and tools', href: '#', download: false },
+      { title: 'Designer Onboarding', description: 'Design workflow and tool setup', href: '#', download: false },
+      { title: 'Developer Onboarding', description: 'Dev environment and coding standards', href: '#', download: false },
     ]
   },
   {
     category: 'Brand Guidelines',
     items: [
-      { title: 'Logo Usage', description: 'Thresh logo guidelines and usage rules', href: '#' },
-      { title: 'Color Palette', description: 'Official brand colors and hex codes', href: '#' },
-      { title: 'Typography', description: 'Font families and hierarchy', href: '#' },
-      { title: 'Voice & Tone', description: 'Brand communication standards', href: '#' },
+      { title: 'Logo Usage', description: 'Thresh logo guidelines and usage rules', href: '#', download: false },
+      { title: 'Color Palette', description: 'Official brand colors and hex codes', href: '#', download: false },
+      { title: 'Typography', description: 'Font families and hierarchy', href: '#', download: false },
+      { title: 'Voice & Tone', description: 'Brand communication standards', href: '#', download: false },
     ]
   },
   {
     category: 'Design Standards',
     items: [
-      { title: 'UI Component Library', description: 'Reusable design components', href: '#' },
-      { title: 'Figma File Organization', description: 'How to structure Figma projects', href: '#' },
-      { title: 'Design Review Process', description: 'Steps for design feedback and approval', href: '#' },
+      { title: 'UI Component Library', description: 'Reusable design components', href: '#', download: false },
+      { title: 'Figma File Organization', description: 'How to structure Figma projects', href: '#', download: false },
+      { title: 'Design Review Process', description: 'Steps for design feedback and approval', href: '#', download: false },
     ]
   },
   {
     category: 'Coding Standards',
     items: [
-      { title: 'JavaScript Style Guide', description: 'Code formatting and best practices', href: '#' },
-      { title: 'React Best Practices', description: 'Component patterns and conventions', href: '#' },
-      { title: 'Git Workflow', description: 'Branching strategy and commit guidelines', href: '#' },
-      { title: 'Code Review Checklist', description: 'What to look for in PRs', href: '#' },
+      { title: 'JavaScript Style Guide', description: 'Code formatting and best practices', href: '#', download: false },
+      { title: 'React Best Practices', description: 'Component patterns and conventions', href: '#', download: false },
+      { title: 'Git Workflow', description: 'Branching strategy and commit guidelines', href: '#', download: false },
+      { title: 'Code Review Checklist', description: 'What to look for in PRs', href: '#', download: false },
     ]
   },
-  {
-    category: 'Templates',
-    items: [
-      { title: 'Slide Deck Template', description: 'Thresh-branded presentation template', href: '#', download: true },
-      { title: 'Email Signature', description: 'HTML email signature template', href: '#', download: true },
-      { title: 'PRD Template', description: 'Product Requirements Document', href: '#', download: true },
-      { title: 'Project Proposal', description: 'Client proposal template', href: '#', download: true },
-    ]
-  },
-  {
-    category: 'Standard Assets',
-    items: [
-      { title: 'Logo Files', description: 'SVG and PNG logo downloads', href: '#', download: true },
-      { title: 'Brand Imagery', description: 'Stock photos and graphics', href: '#', download: true },
-      { title: 'Icon Set', description: 'Thresh icon library', href: '#', download: true },
-      { title: 'Presentation Backgrounds', description: 'Slide backgrounds and templates', href: '#', download: true },
-    ]
-  }
-];
+  // Templates and Standard Assets stay the same with download: true
 
 export default function SOPsPage() {
   const [searchTerm, setSearchTerm] = useState('');
