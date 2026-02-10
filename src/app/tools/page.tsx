@@ -43,7 +43,7 @@ export default function ToolsPage() {
       <tbody className="divide-y divide-gray-200">
         <tr>
           <td className="px-4 py-3">Hardware</td>
-          <td className="px-4 py-3">MacBooks (Apple Silicon)</td>
+          <td className="px-4 py-3">MacBooks</td>
           <td className="px-4 py-3">Primary work devices for all team members</td>
         </tr>
         <tr>
