@@ -7,7 +7,7 @@ export interface Tool {
   logo: string;
   launch_url: string;
   why_we_use_it: string;
-  governance: string;
+  governance: string[];
   access: {
     roles: string[];
     admin: string;
@@ -46,16 +46,13 @@ export const tools: Tool[] = [
     logo: '🎨',
     launch_url: 'https://figma.com',
     why_we_use_it: 'Industry-standard tool for digital design with real-time collaboration, easy client sharing, and seamless developer handoff.',
-    governance: 'Authentication: SSO via Google Workspace. No personal Figma accounts for company work.
- Plan: Figma Organization (Enterprise or Business tier) to enable SSO enforcement, centralized admin, shared libraries, and branching/merging.
-  Permissions:
-  Org Admins: Leadership / IT
-  Full Editors: Designers only
-  Viewers (with Dev Mode or comment access): Developers, Strategists, PMs
-  External Sharing: Client reviews happen via prototype links with expiration or view-only guest access. Never grant edit access to external stakeholders unless explicitly approved.
-  Asset Control: Final, approved assets live in a locked "Final" page or project section. Only design leads can move work into this state.
-	No Downloads of Source Files: Team members should not export or download .fig source files to local machines. Work stays in Figma's cloud.
-',
+    governance: [
+      'SSO via Google Workspace - no personal Figma accounts for company work',
+      'Org Admins: Leadership/IT | Full Editors: Designers only | Viewers: Developers, Strategists, PMs',
+      'Client reviews via prototype links with expiration or view-only access only',
+      'Final assets live in locked "Final" section - only design leads can approve',
+      'No downloads of .fig source files - work stays in Figma cloud'
+    ],
     access: {
       roles: ['designers', 'pms', 'devs'],
       admin: 'design-lead@threshconsulting.com',
@@ -100,7 +97,12 @@ export const tools: Tool[] = [
     logo: '💬',
     launch_url: 'https://threshconsulting.slack.com',
     why_we_use_it: 'Primary internal communication hub for real-time collaboration, organized channels, and tool integrations.',
-    governance: 'The rules are the rules',
+    governance: [
+      'Keep sensitive info in private channels only',
+      'Use threads to organize discussions',
+      'No client confidential data in public channels',
+      'Professional communication standards at all times'
+    ],
     access: {
       roles: ['all'],
       admin: 'operations@threshconsulting.com',
@@ -144,7 +146,12 @@ export const tools: Tool[] = [
     logo: '🤖',
     launch_url: 'https://claude.ai',
     why_we_use_it: 'AI-powered writing, code generation, research support, and internal documentation creation.',
-    governance: 'The rules are the rules',
+    governance: [
+      'Never input confidential client data, PII, or proprietary information',
+      'Always review and verify all AI-generated outputs',
+      'Use for drafting and research only - not final decisions',
+      'Anonymize all data before sharing with AI'
+    ],
     access: {
       roles: ['all'],
       admin: 'product@threshconsulting.com',
@@ -187,7 +194,12 @@ export const tools: Tool[] = [
     logo: '⚙️',
     launch_url: 'https://github.com/threshconsulting',
     why_we_use_it: 'Source code repository, version control, code review, and project documentation.',
-    governance: 'The rules are the rules',
+    governance: [
+      'All code must go through pull requests - no direct commits to main',
+      'Never commit secrets, API keys, or credentials',
+      'Branch protection required on main/production branches',
+      'Code review required before any merge'
+    ],
     access: {
       roles: ['developers', 'designers', 'pms'],
       admin: 'dev-lead@threshconsulting.com',
@@ -225,7 +237,12 @@ export const tools: Tool[] = [
     logo: '📧',
     launch_url: 'https://workspace.google.com',
     why_we_use_it: 'Professional email, file storage, document collaboration, scheduling, and single sign-on.',
-    governance: 'The rules are the rules',
+    governance: [
+      'Use company email for all work communications',
+      '2FA required on all accounts',
+      'Organize files in shared team/client folders',
+      'Use "Internal sharing" for sensitive company documents'
+    ],
     access: {
       roles: ['all'],
       admin: 'it@threshconsulting.com',
@@ -263,7 +280,12 @@ export const tools: Tool[] = [
     logo: '🔒',
     launch_url: 'https://addigy.com',
     why_we_use_it: 'Centralized device security, remote software deployment, and device monitoring.',
-    governance: 'The rules are the rules',
+    governance: [
+      'Keep MDM profile installed at all times',
+      'Allow IT to push security updates and software',
+      'Report lost or stolen devices immediately to IT',
+      'Never bypass or disable security settings'
+    ],
     access: {
       roles: ['all'],
       admin: 'it@threshconsulting.com',
@@ -300,7 +322,12 @@ export const tools: Tool[] = [
     logo: '🔐',
     launch_url: 'https://1password.com',
     why_we_use_it: 'Secure password storage, team credential sharing, and strong password generation.',
-    governance: 'The rules are the rules',
+    governance: [
+      'Store all work passwords in 1Password only',
+      'Never share master password with anyone (including IT)',
+      'Use 1Password to generate strong passwords (20+ characters)',
+      'Enable biometric unlock on all devices'
+    ],
     access: {
       roles: ['all'],
       admin: 'it@threshconsulting.com',

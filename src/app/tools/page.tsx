@@ -257,7 +257,11 @@ export default function ToolsPage() {
               {/*Governance */}
               <div>
                 <h3 className="text-xl font-bold mb-2">🦖 Governance</h3>
-                <ul className="text-gray-700">{tool.governance}</ul>
+               <ul className="text-gray-700 list-disc list-inside space-y-1">
+                {tool.governance.map((rule, index) => (
+                  <li key={index}>{rule}</li>
+                ))}
+              </ul>
               </div>
               {/* Resources */}
               <div>
