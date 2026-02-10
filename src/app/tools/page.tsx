@@ -24,6 +24,18 @@ export default function ToolsPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h1 className="text-4xl font-bold mb-8">Tools & Apps</h1>
       <h2 className="text-4xl font mb-6">Overview & Guidance</h2>
+<p className="text-gray-600 text-lg mb-8">
+Before diving into individual tools, here's the bedrock your entire stack sits on:
+Layer	Solution	Role
+Hardware	MacBooks (Apple Silicon)	Primary work devices for all team members
+Device Management & Security	Addigy	MDM, patch management, security compliance, remote monitoring
+Identity & SSO	Google Workspace	Single Sign-On provider, email, calendar, core identity layer
+Network & Access	Google Workspace + Addigy policies	Enforce encryption, firewall rules, VPN requirements as needed
+Core Principles
+•	Google Workspace is the identity source of truth. Every tool that supports SSO or SAML should authenticate through Google Workspace. This gives you centralized user provisioning, de-provisioning, and audit trails.
+•	Addigy enforces device-level compliance. FileVault encryption, OS updates, approved software lists, and remote lock/wipe capabilities ensure that the hardware accessing your tools meets security baselines.
+•	Least-privilege access by default. Team members get the minimum permissions needed for their role. Escalation is intentional, not accidental.
+</p>
 
       {/* Search and Filter */}
       <div className="mb-8 space-y-4">
