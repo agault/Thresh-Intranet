@@ -163,7 +163,7 @@ export const tools: Tool[] = [
     id: 'slack',
     name: 'Slack',
     tagline: 'Team communication platform',
-    description: 'Slack is a team communication platform with channels, direct messages, file sharing, and integrations with other tools.',
+    description: 'Slack is Thresh's central nervous system for team communication — quick questions, project updates, client coordination, alerts, and cross-tool notifications. It is not a knowledge base or file storage system.',
     category: ['communication'],
     logo: '💬',
     launch_url: 'https://threshconsulting.slack.com',
