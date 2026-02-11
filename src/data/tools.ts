@@ -152,10 +152,13 @@ export const tools: Tool[] = [
     launch_url: 'https://claude.ai',
     why_we_use_it: 'AI-powered writing, code generation, research support, and internal documentation creation.',
     governance: [
-      'Never input confidential client data, PII, or proprietary information',
-      'Always review and verify all AI-generated outputs',
-      'Use for drafting and research only - not final decisions',
-      'Anonymize all data before sharing with AI'
+      '**Plan:** Claude Pro (Team plan when available, for centralized billing and admin controls). Monitor Anthropic\'s enterprise roadmap for SSO and admin features.',
+      '**Authentication:** Individual Claude Pro accounts provisioned using Google Workspace email addresses. When Anthropic releases Team/Enterprise SSO support, migrate immediately.',
+      '**Data Sensitivity Policy:** + General strategy frameworks, public info: *✅ Yes* + Internal project briefs (non-sensitive): *✅ Yes* + Draft copy, code snippets, wireframe descriptions: *✅ Yes* + Client names in general project context: *⚠️ Use judgment — anonymize when possible* + Client financials, contracts, legal documents: *❌ No — or only with client permission and awareness* + Passwords, API keys, credentials: *❌ Absolutely not* + Personal Identifiable Information (PII): *❌ No*',
+      '**Disclosure:** Thresh should establish a clear internal and (where appropriate) client-facing position on AI use. Recommended stance: "We use AI tools to accelerate research and ideation. All deliverables are human-reviewed, refined, and validated."',
+      '**Intellectual Property:** Team members should understand that prompts and outputs may inform model training depending on plan terms. Review Anthropic\'s data usage policies for the active plan tier. Pro plan conversations are not used for training by default — confirm this remains the case.',
+      '**No Shadow AI:** Claude Pro is the approved AI tool. Team members should not use unauthorized AI tools (ChatGPT personal accounts, open-source models on personal devices) for client work without leadership approval.',
+      '**Addigy Consideration:** If Claude is accessed via web browser (most likely), ensure Addigy policies don\'t inadvertently block claude.ai. If a desktop app becomes available, add it to the approved software list.'
     ],
     access: {
       roles: ['all'],
@@ -200,10 +203,15 @@ export const tools: Tool[] = [
     launch_url: 'https://github.com/threshconsulting',
     why_we_use_it: 'Source code repository, version control, code review, and project documentation.',
     governance: [
-      'All code must go through pull requests - no direct commits to main',
-      'Never commit secrets, API keys, or credentials',
-      'Branch protection required on main/production branches',
-      'Code review required before any merge'
+      '**Authentication:** SSO via Google Workspace using GitHub Enterprise Cloud (or GitHub Team with SAML if budget is constrained). Enforce 2FA on all accounts regardless.',
+      '**Plan:** GitHub Team (minimum) or Enterprise Cloud for SSO/SAML enforcement, audit logs, and advanced security features.',
+      '**Permissions:** + *Org Owner:* Leadership / IT (1-2 people max) + *Maintainer:* Senior Developers / Tech Leads + *Write:* All developers + *Read:* Designers, PMs, Strategists (as needed) + *Outside Collaborator:* Contractors (per-repo, time-limited)',
+      '**Branch Protection Rules:** + *main:* Require PR, require 1+ approving review, require status checks to pass, no force pushes, no deletions + *develop:* Require PR, require status checks to pass',
+      '**Secrets Management:** Never commit API keys, credentials, or environment variables to repos. Use GitHub Secrets, environment variables in CI/CD, or a secrets manager.',
+      '**.gitignore Standards:** Every repo must have a proper .gitignore — no node_modules, .env files, OS artifacts (.DS_Store), or IDE configs committed.',
+      '**Dependency Security:** Enable Dependabot for automated vulnerability alerts and dependency updates. Review and merge Dependabot PRs weekly.',
+      '**Client Code Ownership:** All client repos should have a LICENSE and README with clear ownership notes. Repos for completed/churned clients should be archived, not deleted.',
+      '**Addigy Consideration:** Ensure Git and developer tooling (VS Code, terminal, Xcode CLI tools) are on the approved software list. SSH keys should be generated per-device and registered to GitHub accounts.'
     ],
     access: {
       roles: ['developers', 'designers', 'pms'],
