@@ -4,6 +4,41 @@ import { useState } from 'react';
 import { tools } from '@/data/tools';
 import { Search, ExternalLink, X, CheckCircle, XCircle } from 'lucide-react';
 
+// Added to parse markdown
+function parseMarkdown(text: string) {
+  const parts: React.ReactNode[] = [];
+  let currentIndex = 0;
+  
+  // Regex to match **bold** and *italic*
+  const regex = /(\*\*.*?\*\*|\*.*?\*)/g;
+  let match;
+  
+  while ((match = regex.exec(text)) !== null) {
+    // Add text before match
+    if (match.index > currentIndex) {
+      parts.push(text.substring(currentIndex, match.index));
+    }
+    
+    const matched = match[0];
+    if (matched.startsWith('**') && matched.endsWith('**')) {
+      // Bold
+      parts.push(<strong key={match.index}>{matched.slice(2, -2)}</strong>);
+    } else if (matched.startsWith('*') && matched.endsWith('*')) {
+      // Italic
+      parts.push(<em key={match.index}>{matched.slice(1, -1)}</em>);
+    }
+    
+    currentIndex = match.index + matched.length;
+  }
+  
+  // Add remaining text
+  if (currentIndex < text.length) {
+    parts.push(text.substring(currentIndex));
+  }
+  
+  return parts.length > 0 ? parts : text;
+}
+
 export default function ToolsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -254,14 +289,31 @@ export default function ToolsPage() {
                   </div>
                 </div>
               </div>
-              {/*Governance */}
+              {/* Governance */}
               <div>
                 <h3 className="text-xl font-bold mb-2">🦖 Governance</h3>
-               <ul className="text-gray-700 list-disc list-inside space-y-1">
-                {tool.governance.map((rule, index) => (
-                  <li key={index}>{rule}</li>
-                ))}
-              </ul>
+                <ul className="text-gray-700 list-disc list-inside space-y-1">
+                  {tool.governance.map((rule, index) => {
+                    // Check if rule has nested items (contains +)
+                    if (rule.includes(' + ')) {
+                      const [mainPart, ...subItems] = rule.split(' + ');
+                      
+                      return (
+                        <li key={index} className="mb-2">
+                          {parseMarkdown(mainPart)}
+                          <ul className="list-circle list-inside ml-6 mt-1 space-y-0.5">
+                            {subItems.map((item, subIndex) => (
+                              <li key={subIndex} className="text-sm">{parseMarkdown(item.trim())}</li>
+                            ))}
+                          </ul>
+                        </li>
+                      );
+                    }
+                    
+                    // Regular item with markdown parsing
+                    return <li key={index}>{parseMarkdown(rule)}</li>;
+                  })}
+                </ul>
               </div>
               {/* Resources */}
               <div>

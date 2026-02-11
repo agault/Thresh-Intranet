@@ -47,11 +47,13 @@ export const tools: Tool[] = [
     launch_url: 'https://figma.com',
     why_we_use_it: 'Industry-standard tool for digital design with real-time collaboration, easy client sharing, and seamless developer handoff.',
     governance: [
-      'SSO via Google Workspace - no personal Figma accounts for company work',
-      'Org Admins: Leadership/IT | Full Editors: Designers only | Viewers: Developers, Strategists, PMs',
-      'Client reviews via prototype links with expiration or view-only access only',
-      'Final assets live in locked "Final" section - only design leads can approve',
-      'No downloads of .fig source files - work stays in Figma cloud'
+      '**Authentication:** SSO via Google Workspace. No personal Figma accounts for company work.',
+      '**Plan:** Figma Organization (Enterprise or Business tier) to enable SSO enforcement, centralized admin, shared libraries, and branching/merging.',
+      '**Permissions:** + *Org Admins:* Leadership / IT + *Full Editors:* Designers only + *Viewers (with Dev Mode or comment access):* Developers, Strategists, PMs',
+      '**Naming Conventions:** Enforce consistent file naming — [Client] — [Project] — [Phase/Description]',
+      '**External Sharing:** Client reviews happen via prototype links with expiration or view- only guest access. Never grant edit access to external stakeholders unless explicitly approved.',
+      '**Asset Control:** Final, approved assets live in a locked &quot;Final&quot; page or project section. Only design leads can move work into this state.',
+      '**No Downloads of Source Files:** Team members should not export or download .fig source files to local machines. Work stays in Figma&#39;s cloud.'
     ],
     access: {
       roles: ['designers', 'pms', 'devs'],
