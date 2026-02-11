@@ -100,10 +100,13 @@ export const tools: Tool[] = [
     launch_url: 'https://threshconsulting.slack.com',
     why_we_use_it: 'Primary internal communication hub for real-time collaboration, organized channels, and tool integrations.',
     governance: [
-      'Keep sensitive info in private channels only',
-      'Use threads to organize discussions',
-      'No client confidential data in public channels',
-      'Professional communication standards at all times'
+      '**Authentication:** SSO via Google Workspace. Enforce mandatory SSO on Slack Business+ or Enterprise Grid plan.',
+      '**Plan:** Slack Business+ (minimum) to support SSO enforcement, data retention policies, and compliance features.',
+      '**Permissions:** + *Workspace Admins:* Leadership / IT + *Channel creation:* Leads and above (prevent channel sprawl) + *Guest accounts:* Used sparingly for client collaborators via Slack Connect',
+      '**Data Retention:** Set a company-wide retention policy (e.g., 1 year for all channels, 90 days for DMs). This reduces liability and keeps the workspace manageable.',
+      '**Integrations:** + GitHub → Slack (PR notifications, deployment alerts) + Figma → Slack (comment notifications) + Google Drive → Slack (file sharing alerts) + Only approved integrations; team members cannot install arbitrary Slack apps without IT/admin approval',
+      '**Sensitive Information:** No credentials, API keys, client PII, or financial data in Slack — *ever*. Use a password manager (e.g., 1Password) and link to secured docs instead.',
+      '**External Sharing:** Slack Connect channels require admin approval. No unauthorized external guest invites.'
     ],
     access: {
       roles: ['all'],
