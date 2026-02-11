@@ -289,6 +289,7 @@ export default function ToolsPage() {
                   </div>
                 </div>
               </div>
+
               {/* Governance */}
               <div>
                 <h3 className="text-xl font-bold mb-2">🦖 Governance</h3>
@@ -315,6 +316,21 @@ export default function ToolsPage() {
                   })}
                 </ul>
               </div>
+
+              {/* Folder Structure */}
+              {tool.folder_structure && (
+                <div>
+                  <h3 className="text-xl font-bold mb-2">📁 Folder Structure</h3>
+                  <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <pre className="text-sm text-gray-700 font-mono whitespace-pre overflow-x-auto">
+                      {tool.folder_structure.map((line, index) => (
+                        <div key={index}>{parseMarkdown(line)}</div>
+                      ))}
+                    </pre>
+                  </div>
+                </div>
+              )}
+
               {/* Resources */}
               <div>
                 <h3 className="text-xl font-bold mb-2">📚 Resources</h3>

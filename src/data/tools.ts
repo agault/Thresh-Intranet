@@ -34,6 +34,7 @@ export interface Tool {
     title: string;
     url: string;
   }[];
+  folder_structure?: string[];
 }
 
 export const tools: Tool[] = [
@@ -41,19 +42,17 @@ export const tools: Tool[] = [
     id: 'figma',
     name: 'Figma',
     tagline: 'Collaborative design platform',
-    description: 'Figma is Thresh`s single source of truth for all design work — brand assets, UI/UX design, wireframes, prototypes, client presentations, and design systems. It is where creative concepts become tangible artifacts that clients and developers can interact with.',
+    description: 'Figma is a cloud-based design platform for UI/UX design, prototyping, and collaboration. It allows multiple team members to work on the same design file simultaneously in real-time.',
     category: ['design', 'collaboration'],
     logo: '🎨',
     launch_url: 'https://figma.com',
     why_we_use_it: 'Industry-standard tool for digital design with real-time collaboration, easy client sharing, and seamless developer handoff.',
     governance: [
-      '**Authentication:** SSO via Google Workspace. No personal Figma accounts for company work.',
-      '**Plan:** Figma Organization (Enterprise or Business tier) to enable SSO enforcement, centralized admin, shared libraries, and branching/merging.',
-      '**Permissions:** + *Org Admins:* Leadership / IT + *Full Editors:* Designers only + *Viewers (with Dev Mode or comment access):* Developers, Strategists, PMs',
-      '**Naming Conventions:** Enforce consistent file naming — [Client] — [Project] — [Phase/Description]',
-      '**External Sharing:** Client reviews happen via prototype links with expiration or view- only guest access. Never grant edit access to external stakeholders unless explicitly approved.',
-      '**Asset Control:** Final, approved assets live in a locked &quot;Final&quot; page or project section. Only design leads can move work into this state.',
-      '**No Downloads of Source Files:** Team members should not export or download .fig source files to local machines. Work stays in Figma&#39;s cloud.'
+      'SSO via Google Workspace - no personal Figma accounts for company work',
+      'Org Admins: Leadership/IT | Full Editors: Designers only | Viewers: Developers, Strategists, PMs',
+      'Client reviews via prototype links with expiration or view-only access only',
+      'Final assets live in locked "Final" section - only design leads can approve',
+      'No downloads of .fig source files - work stays in Figma cloud'
     ],
     access: {
       roles: ['designers', 'pms', 'devs'],
@@ -88,6 +87,19 @@ export const tools: Tool[] = [
     resources: [
       { title: 'Usage Guide', url: '/sops/tools/figma' },
       { title: 'Official Docs', url: 'https://help.figma.com' }
+    ],
+    folder_structure: [
+      'Thresh Consulting (Org)',
+      '├── [Client Name] — Project',
+      '│   ├── ✅ Final / Approved',
+      '│   ├── 🚧 In Progress',
+      '│   ├── 🗄️ Archive',
+      '│   └── 🧩 Design System / Components',
+      '├── Internal — Thresh Brand',
+      '│   ├── Brand Assets',
+      '│   ├── Templates (Proposals, Decks)',
+      '│   └── Design System',
+      '└── Sandbox / Exploration'
     ]
   },
   {
@@ -100,13 +112,10 @@ export const tools: Tool[] = [
     launch_url: 'https://threshconsulting.slack.com',
     why_we_use_it: 'Primary internal communication hub for real-time collaboration, organized channels, and tool integrations.',
     governance: [
-      '**Authentication:** SSO via Google Workspace. Enforce mandatory SSO on Slack Business+ or Enterprise Grid plan.',
-      '**Plan:** Slack Business+ (minimum) to support SSO enforcement, data retention policies, and compliance features.',
-      '**Permissions:** + *Workspace Admins:* Leadership / IT + *Channel creation:* Leads and above (prevent channel sprawl) + *Guest accounts:* Used sparingly for client collaborators via Slack Connect',
-      '**Data Retention:** Set a company-wide retention policy (e.g., 1 year for all channels, 90 days for DMs). This reduces liability and keeps the workspace manageable.',
-      '**Integrations:** + GitHub → Slack (PR notifications, deployment alerts) + Figma → Slack (comment notifications) + Google Drive → Slack (file sharing alerts) + Only approved integrations; team members cannot install arbitrary Slack apps without IT/admin approval',
-      '**Sensitive Information:** No credentials, API keys, client PII, or financial data in Slack — *ever*. Use a password manager (e.g., 1Password) and link to secured docs instead.',
-      '**External Sharing:** Slack Connect channels require admin approval. No unauthorized external guest invites.'
+      'Keep sensitive info in private channels only',
+      'Use threads to organize discussions',
+      'No client confidential data in public channels',
+      'Professional communication standards at all times'
     ],
     access: {
       roles: ['all'],
@@ -152,13 +161,10 @@ export const tools: Tool[] = [
     launch_url: 'https://claude.ai',
     why_we_use_it: 'AI-powered writing, code generation, research support, and internal documentation creation.',
     governance: [
-      '**Plan:** Claude Pro (Team plan when available, for centralized billing and admin controls). Monitor Anthropic\'s enterprise roadmap for SSO and admin features.',
-      '**Authentication:** Individual Claude Pro accounts provisioned using Google Workspace email addresses. When Anthropic releases Team/Enterprise SSO support, migrate immediately.',
-      '**Data Sensitivity Policy:** + General strategy frameworks, public info: *✅ Yes* + Internal project briefs (non-sensitive): *✅ Yes* + Draft copy, code snippets, wireframe descriptions: *✅ Yes* + Client names in general project context: *⚠️ Use judgment — anonymize when possible* + Client financials, contracts, legal documents: *❌ No — or only with client permission and awareness* + Passwords, API keys, credentials: *❌ Absolutely not* + Personal Identifiable Information (PII): *❌ No*',
-      '**Disclosure:** Thresh should establish a clear internal and (where appropriate) client-facing position on AI use. Recommended stance: "We use AI tools to accelerate research and ideation. All deliverables are human-reviewed, refined, and validated."',
-      '**Intellectual Property:** Team members should understand that prompts and outputs may inform model training depending on plan terms. Review Anthropic\'s data usage policies for the active plan tier. Pro plan conversations are not used for training by default — confirm this remains the case.',
-      '**No Shadow AI:** Claude Pro is the approved AI tool. Team members should not use unauthorized AI tools (ChatGPT personal accounts, open-source models on personal devices) for client work without leadership approval.',
-      '**Addigy Consideration:** If Claude is accessed via web browser (most likely), ensure Addigy policies don\'t inadvertently block claude.ai. If a desktop app becomes available, add it to the approved software list.'
+      'Never input confidential client data, PII, or proprietary information',
+      'Always review and verify all AI-generated outputs',
+      'Use for drafting and research only - not final decisions',
+      'Anonymize all data before sharing with AI'
     ],
     access: {
       roles: ['all'],
@@ -203,15 +209,10 @@ export const tools: Tool[] = [
     launch_url: 'https://github.com/threshconsulting',
     why_we_use_it: 'Source code repository, version control, code review, and project documentation.',
     governance: [
-      '**Authentication:** SSO via Google Workspace using GitHub Enterprise Cloud (or GitHub Team with SAML if budget is constrained). Enforce 2FA on all accounts regardless.',
-      '**Plan:** GitHub Team (minimum) or Enterprise Cloud for SSO/SAML enforcement, audit logs, and advanced security features.',
-      '**Permissions:** + *Org Owner:* Leadership / IT (1-2 people max) + *Maintainer:* Senior Developers / Tech Leads + *Write:* All developers + *Read:* Designers, PMs, Strategists (as needed) + *Outside Collaborator:* Contractors (per-repo, time-limited)',
-      '**Branch Protection Rules:** + *main:* Require PR, require 1+ approving review, require status checks to pass, no force pushes, no deletions + *develop:* Require PR, require status checks to pass',
-      '**Secrets Management:** Never commit API keys, credentials, or environment variables to repos. Use GitHub Secrets, environment variables in CI/CD, or a secrets manager.',
-      '**.gitignore Standards:** Every repo must have a proper .gitignore — no node_modules, .env files, OS artifacts (.DS_Store), or IDE configs committed.',
-      '**Dependency Security:** Enable Dependabot for automated vulnerability alerts and dependency updates. Review and merge Dependabot PRs weekly.',
-      '**Client Code Ownership:** All client repos should have a LICENSE and README with clear ownership notes. Repos for completed/churned clients should be archived, not deleted.',
-      '**Addigy Consideration:** Ensure Git and developer tooling (VS Code, terminal, Xcode CLI tools) are on the approved software list. SSH keys should be generated per-device and registered to GitHub accounts.'
+      'All code must go through pull requests - no direct commits to main',
+      'Never commit secrets, API keys, or credentials',
+      'Branch protection required on main/production branches',
+      'Code review required before any merge'
     ],
     access: {
       roles: ['developers', 'designers', 'pms'],
@@ -239,6 +240,22 @@ export const tools: Tool[] = [
     },
     resources: [
       { title: 'GitHub Guide', url: '/sops/tools/github' }
+    ],
+    folder_structure: [
+      '**Repository Structure**',
+      'thresh-consulting (GitHub Organization)',
+      '├── client-[name]-[project]     *# Client project repos*',
+      '├── internal-[tool/system]      *# Internal tools, automations*',
+      '├── template-[type]             *# Starter templates (Next.js, etc.)*',
+      '├── thresh-brand                *# Company website, brand assets*',
+      '└── docs-[topic]                *# Internal technical documentation*',
+      '',
+      '**Branching & Workflow**',
+      'main *(production — protected)*',
+      '└── develop *(integration branch — protected)*',
+      '    └── feature/[ticket-id]-[description]',
+      '    └── fix/[ticket-id]-[description]',
+      '    └── chore/[description]'
     ]
   },
   {
@@ -251,14 +268,10 @@ export const tools: Tool[] = [
     launch_url: 'https://workspace.google.com',
     why_we_use_it: 'Professional email, file storage, document collaboration, scheduling, and single sign-on.',
     governance: [
-      '**Authentication:** Native Google Workspace — this IS the SSO provider.',
-      '**Plan:** Google Workspace Business Standard or Business Plus (for Vault, advanced sharing controls, and DLP).',
-      '**Sharing Permissions:** + *Internal sharing (within org):* ✅ Default — team members can access Shared Drives relevant to their role + *External sharing (with clients):* ⚠️ Allowed with intentional, per-file/folder sharing. Use "Viewer" as default for external + *Public link sharing ("Anyone with the link"):* ❌ Prohibited for any client or sensitive internal document + *Download/copy/print by external viewers:* ❌ Disabled by default for sensitive documents',
-      '**Access Control by Folder:** + *Contracts & Legal:* Restricted to Leadership + relevant PM + *Finance & Accounting:* Restricted to Leadership + Finance + *HR & People:* Restricted to Leadership + HR + *All other folders:* Accessible to relevant project team members',
-      '**Data Loss Prevention (DLP):** If on Business Plus or Enterprise, enable Google Workspace DLP rules to detect and flag sensitive data (SSNs, credit card numbers, etc.) being shared externally.',
-      '**Google Vault:** Enable retention policies and legal holds for compliance. Minimum 3-year retention on all business documents.',
-      '**Version History:** Educate team on using Google Docs version history instead of creating manual "v1, v2, v3" copies. Name versions at key milestones.',
-      '**Offboarding:** When a team member departs, transfer ownership of any remaining "My Drive" files to their manager via Google Admin console. Shared Drive content is unaffected.'
+      'Use company email for all work communications',
+      '2FA required on all accounts',
+      'Organize files in shared team/client folders',
+      'Use "Internal sharing" for sensitive company documents'
     ],
     access: {
       roles: ['all'],
@@ -286,6 +299,28 @@ export const tools: Tool[] = [
     },
     resources: [
       { title: 'Workspace Guide', url: '/sops/tools/google' }
+    ],
+    folder_structure: [
+      'Thresh Consulting (Shared Drives)',
+      '├── 🤝 Clients',
+      '│   └── [Client Name]',
+      '│       ├── 01 — Sales & Proposals',
+      '│       ├── 02 — Contracts & Legal',
+      '│       ├── 03 — Discovery & Strategy',
+      '│       ├── 04 — Design *(links to Figma — not file storage)*',
+      '│       ├── 05 — Development *(links to GitHub — not file storage)*',
+      '│       ├── 06 — Deliverables & Final Assets',
+      '│       └── 07 — Meeting Notes & Communication',
+      '├── 🏢 Internal',
+      '│   ├── Operations & Policies',
+      '│   ├── Templates',
+      '│   ├── Finance & Accounting *(restricted)*',
+      '│   ├── HR & People *(restricted)*',
+      '│   └── Brand & Marketing',
+      '└── 📚 Knowledge Base',
+      '    ├── Playbooks & Frameworks',
+      '    ├── Case Studies',
+      '    └── Tech & Tool Documentation'
     ]
   },
   {
