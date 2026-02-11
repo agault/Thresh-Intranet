@@ -251,10 +251,14 @@ export const tools: Tool[] = [
     launch_url: 'https://workspace.google.com',
     why_we_use_it: 'Professional email, file storage, document collaboration, scheduling, and single sign-on.',
     governance: [
-      'Use company email for all work communications',
-      '2FA required on all accounts',
-      'Organize files in shared team/client folders',
-      'Use "Internal sharing" for sensitive company documents'
+      '**Authentication:** Native Google Workspace — this IS the SSO provider.',
+      '**Plan:** Google Workspace Business Standard or Business Plus (for Vault, advanced sharing controls, and DLP).',
+      '**Sharing Permissions:** + *Internal sharing (within org):* ✅ Default — team members can access Shared Drives relevant to their role + *External sharing (with clients):* ⚠️ Allowed with intentional, per-file/folder sharing. Use "Viewer" as default for external + *Public link sharing ("Anyone with the link"):* ❌ Prohibited for any client or sensitive internal document + *Download/copy/print by external viewers:* ❌ Disabled by default for sensitive documents',
+      '**Access Control by Folder:** + *Contracts & Legal:* Restricted to Leadership + relevant PM + *Finance & Accounting:* Restricted to Leadership + Finance + *HR & People:* Restricted to Leadership + HR + *All other folders:* Accessible to relevant project team members',
+      '**Data Loss Prevention (DLP):** If on Business Plus or Enterprise, enable Google Workspace DLP rules to detect and flag sensitive data (SSNs, credit card numbers, etc.) being shared externally.',
+      '**Google Vault:** Enable retention policies and legal holds for compliance. Minimum 3-year retention on all business documents.',
+      '**Version History:** Educate team on using Google Docs version history instead of creating manual "v1, v2, v3" copies. Name versions at key milestones.',
+      '**Offboarding:** When a team member departs, transfer ownership of any remaining "My Drive" files to their manager via Google Admin console. Shared Drive content is unaffected.'
     ],
     access: {
       roles: ['all'],
