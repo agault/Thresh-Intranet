@@ -13,7 +13,6 @@ const RSS_FEEDS = [
   { url: 'https://css-tricks.com/feed/', category: 'Digital Design' },
 ];
 
-// Revalidate once per day (86400 seconds)
 export const revalidate = 86400;
 
 function extractMatch(text: string, ...patterns: RegExp[]): string {
@@ -23,6 +22,29 @@ function extractMatch(text: string, ...patterns: RegExp[]): string {
   }
   return '';
 }
+
+// 👇 Add this function here
+function decodeHTML(str: string): string {
+  return str
+    .replace(/&#x27;/g, "'")
+    .replace(/&#8217;/g, "'")
+    .replace(/&#8216;/g, "'")
+    .replace(/&#8220;/g, '"')
+    .replace(/&#8221;/g, '"')
+    .replace(/&#8211;/g, '–')
+    .replace(/&#8212;/g, '—')
+    .replace(/&#38;/g, '&')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&#\d+;/g, (match) => {
+      const code = parseInt(match.slice(2, -1));
+      return String.fromCharCode(code);
+    });
+}
+
 function parseItems(xml: string): string[] {
   const items: string[] = [];
   const regex = /<item>([\s\S]*?)<\/item>/g;
@@ -68,16 +90,16 @@ async function parseRSS(url: string, category: string) {
       const description = rawDescription.replace(/<[^>]+>/g, '').slice(0, 150).trim();
 
       return {
-        title: title.replace(/<[^>]+>/g, '').trim(),
+        // 👇 Wrap title and description with decodeHTML
+        title: decodeHTML(title.replace(/<[^>]+>/g, '').trim()),
         link: link.trim(),
         pubDate,
-        description,
+        description: decodeHTML(description),
         category,
       };
     })
-    // Filter out blank or CSS-only articles
-    .filter((a) => 
-      a.title.length > 5 && 
+    .filter((a) =>
+      a.title.length > 5 &&
       a.link.startsWith('http') &&
       !a.title.toLowerCase().includes('css') &&
       a.description.length > 0
