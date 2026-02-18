@@ -1,60 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { TrendingUp, Activity, Award, ExternalLink } from 'lucide-react';
-
-interface NewsItem {
-  title: string;
-  source: string;
-  url: string;
-  date: string;
-}
+import { useState } from 'react';
+import { TrendingUp, Activity, Award } from 'lucide-react';
+import NewsFeed from '@/components/NewsFeed';
 
 export default function Dashboard() {
-  const [news, setNews] = useState<NewsItem[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulated news data (in production, this would fetch from API)
-    const mockNews: NewsItem[] = [
-      {
-        title: 'AI Agents Revolutionize Enterprise Workflows',
-        source: 'TechCrunch',
-        url: '#',
-        date: '2 hours ago'
-      },
-      {
-        title: 'The Future of Digital Product Design in 2026',
-        source: 'The Verge',
-        url: '#',
-        date: '5 hours ago'
-      },
-      {
-        title: 'Cloudflare Announces New Edge Computing Features',
-        source: 'VentureBeat',
-        url: '#',
-        date: '1 day ago'
-      },
-      {
-        title: 'React 19 Release: What You Need to Know',
-        source: 'Hacker News',
-        url: '#',
-        date: '1 day ago'
-      },
-      {
-        title: 'Design Systems at Scale: Best Practices',
-        source: 'MIT Technology Review',
-        url: '#',
-        date: '2 days ago'
-      }
-    ];
-    
-    setTimeout(() => {
-      setNews(mockNews);
-      setLoading(false);
-    }, 500);
-  }, []);
-
   const metrics = [
     { label: 'Active Projects', value: '5', icon: Activity, color: 'bg-green-500' },
     { label: 'Team Velocity', value: '87%', icon: TrendingUp, color: 'bg-blue-500' },
@@ -85,51 +35,13 @@ export default function Dashboard() {
         })}
       </div>
 
-      {/* News Feed */}
-      <div className="bg-white rounded-lg shadow p-6">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold">Tech News & Insights</h2>
-          <div className="flex gap-2">
-            <button className="px-3 py-1 rounded-md bg-thresh-blue text-white text-sm">All</button>
-            <button className="px-3 py-1 rounded-md bg-gray-100 text-gray-700 text-sm hover:bg-gray-200">AI</button>
-            <button className="px-3 py-1 rounded-md bg-gray-100 text-gray-700 text-sm hover:bg-gray-200">Design</button>
-            <button className="px-3 py-1 rounded-md bg-gray-100 text-gray-700 text-sm hover:bg-gray-200">Dev</button>
-          </div>
-        </div>
-
-        {loading ? (
-          <div className="text-center py-8 text-gray-500">Loading news...</div>
-        ) : (
-          <div className="space-y-4">
-            {news.map((item, index) => (
-              <a
-                key={index}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block p-4 border border-gray-200 rounded-lg hover:border-thresh-blue hover:shadow-md transition-all group"
-              >
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-lg group-hover:text-thresh-blue transition-colors">
-                      {item.title}
-                    </h3>
-                    <div className="flex items-center gap-3 mt-2 text-sm text-gray-500">
-                      <span>{item.source}</span>
-                      <span>•</span>
-                      <span>{item.date}</span>
-                    </div>
-                  </div>
-                  <ExternalLink className="text-gray-400 group-hover:text-thresh-blue transition-colors" size={20} />
-                </div>
-              </a>
-            ))}
-          </div>
-        )}
+      {/* Live News Feed */}
+      <div className="bg-white rounded-lg shadow mb-8">
+        <NewsFeed />
       </div>
 
       {/* Quick Links */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-white rounded-lg shadow p-6">
           <h3 className="text-xl font-bold mb-4">Quick Access</h3>
           <div className="space-y-3">
