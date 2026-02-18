@@ -23,7 +23,6 @@ function extractMatch(text: string, ...patterns: RegExp[]): string {
   }
   return '';
 }
-
 function parseItems(xml: string): string[] {
   const items: string[] = [];
   const regex = /<item>([\s\S]*?)<\/item>/g;
