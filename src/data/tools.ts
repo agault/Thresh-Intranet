@@ -1,3 +1,12 @@
+export interface Contact {
+  name: string;
+  role: string;
+  email: string;
+  slack?: string;
+  slackDeepLink?: string;
+  phone?: string;
+}
+
 export interface Tool {
   id: string;
   name: string;
@@ -24,6 +33,10 @@ export interface Tool {
   guardrails: {
     do: string[];
     dont: string[];
+  };
+  contacts?: {
+    internal?: Contact;
+    external?: Contact;
   };
   cost?: {
     amount: number;
@@ -78,6 +91,23 @@ export const tools: Tool[] = [
         'Install unapproved plugins',
         'Share client work publicly without approval'
       ]
+    },
+    contacts: {
+      internal: {
+        name: 'Shania Cabrera',
+        role: 'Design Lead',
+        email: 'shania@threshconsulting.com',
+        slack: '@shania',
+        slackDeepLink: 'slack://user?team=T0ADSBU5Q3B&id=U0AFADW6LD9',
+        phone: ''
+      },
+      external: {
+        name: 'Figma Support',
+        role: 'Vendor Support',
+        email: 'support@figma.com',
+        phone: '',
+        slack: ''
+      }
     },
     cost: {
       amount: 150,
@@ -142,6 +172,23 @@ export const tools: Tool[] = [
         'Respond to suspicious DMs'
       ]
     },
+    contacts: {
+      internal: {
+        name: 'Asia Gault',
+        role: 'Product Manager',
+        email: 'asia@threshconsulting.com',
+        slack: '@asia',
+        slackDeepLink: 'slack://user?team=T0ADSBU5Q3B&id=U0AFACEUFD1',
+        phone: '(719) 393-3131'
+      },
+      external: {
+        name: 'Slack Support',
+        role: 'Vendor Support',
+        email: 'feedback@slack.com',
+        phone: '1-800-SLACK-01',
+        slack: ''
+      }
+    },
     cost: {
       amount: 435,
       period: 'annual',
@@ -190,6 +237,23 @@ export const tools: Tool[] = [
         "Don't present AI work as original research without verification"
       ]
     },
+    contacts: {
+      internal: {
+        name: 'Asia Gault',
+        role: 'Product Manager',
+        email: 'asia@threshconsulting.com',
+        slack: '@asia',
+        slackDeepLink: 'slack://user?team=T0ADSBU5Q3B&id=U0AFACEUFD1',
+        phone: '(719) 393-3131'
+      },
+      external: {
+        name: 'Anthropic Support',
+        role: 'Vendor Support',
+        email: 'support@anthropic.com',
+        phone: '',
+        slack: ''
+      }
+    },
     cost: {
       amount: 2400,
       period: 'annual',
@@ -237,6 +301,23 @@ export const tools: Tool[] = [
         'Never commit client proprietary code without rights',
         'Never share SSH keys or tokens'
       ]
+    },
+    contacts: {
+      internal: {
+        name: 'Charlie Cook',
+        role: 'Sr. Engineer',
+        email: 'me@charliecook.io',
+        slack: '@charlie',
+        slackDeepLink: '',
+        phone: ''
+      },
+      external: {
+        name: 'GitHub Support',
+        role: 'Vendor Support',
+        email: 'support@github.com',
+        phone: '',
+        slack: ''
+      }
     },
     resources: [
       { title: 'GitHub Guide', url: '/sops/tools/github' }
@@ -296,6 +377,23 @@ export const tools: Tool[] = [
         'Store personal files on company Drive',
         'Click suspicious links (report phishing)'
       ]
+    },
+    contacts: {
+      internal: {
+        name: 'Jason Rock',
+        role: 'Partner',
+        email: 'jrock@threshconsulting.com',
+        slack: '@jason',
+        slackDeepLink: 'slack://user?team=T0ADSBU5Q3B&id=U0ADG2DEALV',
+        phone: ''
+      },
+      external: {
+        name: 'Google Workspace Support',
+        role: 'Vendor Support',
+        email: 'workspace-support@google.com',
+        phone: '1-877-355-5787',
+        slack: ''
+      }
     },
     resources: [
       { title: 'Workspace Guide', url: '/sops/tools/google' }
@@ -361,6 +459,23 @@ export const tools: Tool[] = [
         'Ignore update notifications from IT'
       ]
     },
+    contacts: {
+      internal: {
+        name: 'Jason Rock',
+        role: 'Partner',
+        email: 'jrock@threshconsulting.com',
+        slack: '@jason',
+        slackDeepLink: 'slack://user?team=T0ADSBU5Q3B&id=U0ADG2DEALV',
+        phone: ''
+      },
+      external: {
+        name: 'Joe Pokraka',
+        role: 'Sr. Account Manager, Ntiva',
+        email: 'Joe.Pokraka@ntiva.com',
+        phone: '',
+        slack: ''
+      }
+    },
     resources: [
       { title: 'Device Security Guide', url: '/sops/security/addigy' }
     ]
@@ -403,6 +518,23 @@ export const tools: Tool[] = [
         'Reuse passwords across services',
         'Store passwords in browsers or plain text'
       ]
+    },
+    contacts: {
+      internal: {
+        name: 'Jason Rock',
+        role: 'Partner',
+        email: 'jrock@threshconsulting.com',
+        slack: '@jason',
+        slackDeepLink: 'slack://user?team=T0ADSBU5Q3B&id=U0ADG2DEALV',
+        phone: ''
+      },
+      external: {
+        name: '1Password Support',
+        role: 'Vendor Support',
+        email: 'support@1password.com',
+        phone: '',
+        slack: ''
+      }
     },
     resources: [
       { title: '1Password Guide', url: '/sops/security/1password' }
