@@ -229,7 +229,7 @@ export default function TeamPage() {
               <div className="bg-blue-100 border-2 border-blue-500 px-4 py-3 rounded-lg font-semibold mb-2">
                 Design Team
               </div>
-              <div className="text-sm text-gray-600">Shania Cabrera (Lead)</div>
+              <div className="text-sm text-gray-600">Paul Torres (Lead)</div>
               <div className="text-sm text-gray-600">1 member</div>
             </div>
             <div className="text-center">
