@@ -154,8 +154,8 @@ const teamMembers = [
     slackUserId: 'U0AFACEUFD1',
     slackDeepLink: `slack://user?team=${SLACK_TEAM_ID}&id=U0AFACEUFD1`,
     phone: '(719) 393-3131',
-    bio: 'Technical product manager with 4+ years driving platform migrations, enterprise integrations, and process optimization while mentoring teams and scaling cross-functional delivery.',
-    skills: ['Product Management', 'SOPs', 'Engineering Collaboration', 'UX'],
+    bio: 'Technical product manager with 5+ years driving platform migrations, enterprise integrations, and process optimization while mentoring teams and scaling cross-functional delivery.',
+    skills: ['Product Management', 'Technical Knowledge', 'Engineering Collaboration', 'UX'],
   },
   {
     name: 'Shania Cabrera',
